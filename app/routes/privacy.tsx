@@ -17,10 +17,10 @@ export default function PrivacyPage() {
         <section className="space-y-4 text-sm leading-relaxed text-slate-200">
           <p>
             Moody est une extension de navigateur et un petit service web
-            pensé pour t&apos;aider à suivre ton humeur et tes réflexions du
-            quotidien, tout en respectant au maximum ta vie privée. Cette page
-            explique quelles données sont collectées, comment elles sont
-            utilisées et quels sont tes droits.
+            pensé pour t&apos;aider à collecter et organiser tes inspirations
+            visuelles et textuelles au quotidien, tout en respectant au maximum
+            ta vie privée. Cette page explique quelles données sont collectées,
+            comment elles sont utilisées et quels sont tes droits.
           </p>
         </section>
 
@@ -51,8 +51,8 @@ export default function PrivacyPage() {
             </li>
             <li>
               <span className="font-medium">Contenu que tu saisis :</span> tes
-              notes, humeurs et autres informations que tu choisis de
-              enregistrer dans Moody.
+              notes, inspirations et autres informations que tu choisis
+              d&apos;enregistrer dans Moody.
             </li>
             <li>
               <span className="font-medium">Éventuelles images :</span> si tu
@@ -77,7 +77,7 @@ export default function PrivacyPage() {
               actives).
             </li>
             <li>
-              Enregistrer et afficher tes humeurs, notes et contenus liés à
+              Enregistrer et afficher tes inspirations, notes et contenus liés à
               Moody.
             </li>
             <li>
@@ -121,7 +121,7 @@ export default function PrivacyPage() {
             </li>
             <li>
               <span className="font-medium">Base de données PostgreSQL :</span>{" "}
-              stockage des comptes et des contenus (humeurs, notes…).
+              stockage des comptes et des contenus (inspirations, notes…).
             </li>
             <li>
               <span className="font-medium">Netlify Blobs :</span> stockage
