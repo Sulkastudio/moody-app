@@ -7,3 +7,6 @@
 
 # Local Netlify folder
 .netlify
+
+# Local environment variables (do not commit secrets)
+.env
