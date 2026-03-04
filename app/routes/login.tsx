@@ -45,20 +45,32 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-950 text-slate-50">
-      <div className="w-full max-w-md rounded-xl border border-slate-800 bg-slate-900/70 p-6 shadow-xl">
-        <h1 className="mb-4 text-center text-2xl font-semibold">
-          {mode === "signin" ? "Connexion à Moody" : "Créer un compte Moody"}
-        </h1>
+    <main className="min-h-screen flex items-center justify-center px-4 bg-[#f8f5f0] text-[#181818]">
+      <div className="w-full max-w-md rounded-2xl border border-[rgba(0,0,0,0.08)] bg-white/95 p-6 shadow-sm space-y-6">
+        <div className="text-center space-y-3">
+          <img
+            src="/moody-logo.svg"
+            alt="Logo Moody"
+            className="h-8 w-auto mx-auto"
+          />
+          <p className="text-xs uppercase tracking-[0.2em] text-[rgba(0,0,0,0.55)]">
+            {mode === "signin" ? "Connexion" : "Création de compte"}
+          </p>
+          <h1 className="text-xl font-semibold">
+            {mode === "signin"
+              ? "Retrouve tes inspirations"
+              : "Crée ton espace Moody"}
+          </h1>
+        </div>
 
-        <div className="mb-4 flex gap-2 rounded-lg bg-slate-900 p-1">
+        <div className="mb-2 flex gap-2 rounded-full bg-[rgba(0,0,0,0.03)] p-1 text-xs">
           <button
             type="button"
             onClick={() => setMode("signin")}
             className={`flex-1 rounded-md px-3 py-2 text-sm ${
               mode === "signin"
-                ? "bg-slate-50 text-slate-900"
-                : "text-slate-300"
+                ? "bg-[#5E8254] text-white"
+                : "text-[rgba(0,0,0,0.6)]"
             }`}
           >
             Connexion
@@ -68,8 +80,8 @@ export default function LoginPage() {
             onClick={() => setMode("signup")}
             className={`flex-1 rounded-md px-3 py-2 text-sm ${
               mode === "signup"
-                ? "bg-slate-50 text-slate-900"
-                : "text-slate-300"
+                ? "bg-[#5E8254] text-white"
+                : "text-[rgba(0,0,0,0.6)]"
             }`}
           >
             Inscription
@@ -84,7 +96,7 @@ export default function LoginPage() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none focus:border-indigo-500"
+                className="w-full rounded-md border border-[rgba(0,0,0,0.12)] bg-white px-3 py-2 text-sm outline-none focus:border-[#5E8254]"
               />
             </div>
           )}
@@ -96,7 +108,7 @@ export default function LoginPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none focus:border-indigo-500"
+              className="w-full rounded-md border border-[rgba(0,0,0,0.12)] bg-white px-3 py-2 text-sm outline-none focus:border-[#5E8254]"
             />
           </div>
 
@@ -107,14 +119,14 @@ export default function LoginPage() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none focus:border-indigo-500"
+              className="w-full rounded-md border border-[rgba(0,0,0,0.12)] bg-white px-3 py-2 text-sm outline-none focus:border-[#5E8254]"
             />
           </div>
 
           <button
             type="submit"
             disabled={pending}
-            className="mt-2 w-full rounded-md bg-indigo-500 px-3 py-2 text-sm font-medium text-white hover:bg-indigo-400 disabled:opacity-60"
+            className="mt-2 w-full rounded-md bg-[#5E8254] px-3 py-2 text-sm font-medium text-white hover:bg-[#4b6743] disabled:opacity-60"
           >
             {pending
               ? "Patiente..."
@@ -125,15 +137,15 @@ export default function LoginPage() {
         </form>
 
         {message && (
-          <p className="mt-3 text-center text-sm text-emerald-400">
+          <p className="mt-3 text-center text-sm text-[#5E8254]">
             {message}
           </p>
         )}
         {error && (
-          <p className="mt-3 text-center text-sm text-rose-400">{error}</p>
+          <p className="mt-3 text-center text-sm text-rose-500">{error}</p>
         )}
       </div>
-    </div>
+    </main>
   );
 }
 

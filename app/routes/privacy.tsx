@@ -1,20 +1,24 @@
 export default function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-50 px-4 py-16">
+    <main className="min-h-screen bg-[#f8f5f0] text-[#181818] px-4 py-16">
       <div className="max-w-3xl mx-auto space-y-8">
-        <header className="space-y-2">
-          <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
-            Moody
-          </p>
-          <h1 className="text-3xl font-semibold tracking-tight">
+        <header className="space-y-3 text-center">
+          <div className="flex justify-center">
+            <img
+              src="/moody-logo.svg"
+              alt="Logo Moody"
+              className="h-8 w-auto"
+            />
+          </div>
+          <p className="text-xs uppercase tracking-[0.2em] text-[rgba(0,0,0,0.55)]">
             Politique de confidentialité
-          </h1>
-          <p className="text-sm text-slate-400">
+          </p>
+          <p className="text-sm text-[rgba(0,0,0,0.5)]">
             Dernière mise à jour : {new Date().toLocaleDateString("fr-FR")}
           </p>
         </header>
 
-        <section className="space-y-4 text-sm leading-relaxed text-slate-200">
+        <section className="space-y-4 text-sm leading-relaxed text-[rgba(0,0,0,0.8)] bg-white/95 border border-[rgba(0,0,0,0.08)] rounded-2xl p-6 shadow-sm">
           <p>
             Moody est une extension de navigateur et un petit service web
             pensé pour t&apos;aider à collecter et organiser tes inspirations
@@ -24,8 +28,8 @@ export default function PrivacyPage() {
           </p>
         </section>
 
-        <section className="space-y-2 text-sm leading-relaxed text-slate-200">
-          <h2 className="text-base font-semibold text-slate-100">
+        <section className="space-y-2 text-sm leading-relaxed text-[rgba(0,0,0,0.8)]">
+          <h2 className="text-base font-semibold text-[#181818]">
             1. Responsable du traitement
           </h2>
           <p>
@@ -33,18 +37,18 @@ export default function PrivacyPage() {
             toute question liée à la confidentialité ou à tes données, tu peux
             me contacter à l&apos;adresse suivante :
           </p>
-          <p className="text-slate-300">
+          <p className="text-[rgba(0,0,0,0.6)]">
             <span className="font-medium">Email :</span>{" "}
             sophie@sulkastudio.fr
           </p>
         </section>
 
-        <section className="space-y-2 text-sm leading-relaxed text-slate-200">
-          <h2 className="text-base font-semibold text-slate-100">
+        <section className="space-y-2 text-sm leading-relaxed text-[rgba(0,0,0,0.8)]">
+          <h2 className="text-base font-semibold text-[#181818]">
             2. Données collectées
           </h2>
           <p>Moody collecte uniquement les informations nécessaires :</p>
-          <ul className="list-disc pl-5 space-y-1 text-slate-300">
+          <ul className="list-disc pl-5 space-y-1 text-[rgba(0,0,0,0.7)]">
             <li>
               <span className="font-medium">Compte utilisateur :</span> adresse
               email et mot de passe (hashé) pour te permettre de te connecter.
@@ -66,12 +70,12 @@ export default function PrivacyPage() {
           </p>
         </section>
 
-        <section className="space-y-2 text-sm leading-relaxed text-slate-200">
-          <h2 className="text-base font-semibold text-slate-100">
+        <section className="space-y-2 text-sm leading-relaxed text-[rgba(0,0,0,0.8)]">
+          <h2 className="text-base font-semibold text-[#181818]">
             3. Finalités des traitements
           </h2>
           <p>Les données sont utilisées uniquement pour :</p>
-          <ul className="list-disc pl-5 space-y-1 text-slate-300">
+          <ul className="list-disc pl-5 space-y-1 text-[rgba(0,0,0,0.7)]">
             <li>
               Créer et gérer ton compte utilisateur (authentification, sessions
               actives).
@@ -91,8 +95,8 @@ export default function PrivacyPage() {
           </p>
         </section>
 
-        <section className="space-y-2 text-sm leading-relaxed text-slate-200">
-          <h2 className="text-base font-semibold text-slate-100">
+        <section className="space-y-2 text-sm leading-relaxed text-[rgba(0,0,0,0.8)]">
+          <h2 className="text-base font-semibold text-[#181818]">
             4. Base légale
           </h2>
           <p>
@@ -104,8 +108,8 @@ export default function PrivacyPage() {
           </p>
         </section>
 
-        <section className="space-y-2 text-sm leading-relaxed text-slate-200">
-          <h2 className="text-base font-semibold text-slate-100">
+        <section className="space-y-2 text-sm leading-relaxed text-[rgba(0,0,0,0.8)]">
+          <h2 className="text-base font-semibold text-[#181818]">
             5. Hébergement et sous‑traitants
           </h2>
           <p>
@@ -114,7 +118,7 @@ export default function PrivacyPage() {
             du site et de l&apos;API, ainsi qu&apos;une base de données
             PostgreSQL et un stockage de fichiers :
           </p>
-          <ul className="list-disc pl-5 space-y-1 text-slate-300">
+          <ul className="list-disc pl-5 space-y-1 text-[rgba(0,0,0,0.7)]">
             <li>
               <span className="font-medium">Netlify :</span> hébergement du
               site et des fonctions serveur.
@@ -135,15 +139,15 @@ export default function PrivacyPage() {
           </p>
         </section>
 
-        <section className="space-y-2 text-sm leading-relaxed text-slate-200">
-          <h2 className="text-base font-semibold text-slate-100">
+        <section className="space-y-2 text-sm leading-relaxed text-[rgba(0,0,0,0.8)]">
+          <h2 className="text-base font-semibold text-[#181818]">
             6. Cookies et sessions
           </h2>
           <p>
             Moody utilise des <span className="font-medium">cookies</span> ou
             mécanismes similaires uniquement pour :
           </p>
-          <ul className="list-disc pl-5 space-y-1 text-slate-300">
+          <ul className="list-disc pl-5 space-y-1 text-[rgba(0,0,0,0.7)]">
             <li>Maintenir ta session ouverte lorsque tu es connecté(e).</li>
             <li>Sécuriser l&apos;accès à ton compte.</li>
           </ul>
@@ -153,8 +157,8 @@ export default function PrivacyPage() {
           </p>
         </section>
 
-        <section className="space-y-2 text-sm leading-relaxed text-slate-200">
-          <h2 className="text-base font-semibold text-slate-100">
+        <section className="space-y-2 text-sm leading-relaxed text-[rgba(0,0,0,0.8)]">
+          <h2 className="text-base font-semibold text-[#181818]">
             7. Durée de conservation
           </h2>
           <p>
@@ -164,12 +168,12 @@ export default function PrivacyPage() {
           </p>
         </section>
 
-        <section className="space-y-2 text-sm leading-relaxed text-slate-200">
-          <h2 className="text-base font-semibold text-slate-100">
+        <section className="space-y-2 text-sm leading-relaxed text-[rgba(0,0,0,0.8)]">
+          <h2 className="text-base font-semibold text-[#181818]">
             8. Tes droits
           </h2>
           <p>Conformément à la réglementation applicable (notamment RGPD), tu disposes des droits suivants :</p>
-          <ul className="list-disc pl-5 space-y-1 text-slate-300">
+          <ul className="list-disc pl-5 space-y-1 text-[rgba(0,0,0,0.7)]">
             <li>
               <span className="font-medium">Droit d&apos;accès :</span> obtenir
               une copie des données te concernant.
@@ -195,8 +199,8 @@ export default function PrivacyPage() {
           </p>
         </section>
 
-        <section className="space-y-2 text-sm leading-relaxed text-slate-200">
-          <h2 className="text-base font-semibold text-slate-100">
+        <section className="space-y-2 text-sm leading-relaxed text-[rgba(0,0,0,0.8)]">
+          <h2 className="text-base font-semibold text-[#181818]">
             9. Évolutions de cette politique
           </h2>
           <p>
@@ -207,15 +211,15 @@ export default function PrivacyPage() {
           </p>
         </section>
 
-        <section className="space-y-2 text-sm leading-relaxed text-slate-200">
-          <h2 className="text-base font-semibold text-slate-100">
+        <section className="space-y-2 text-sm leading-relaxed text-[rgba(0,0,0,0.8)]">
+          <h2 className="text-base font-semibold text-[#181818]">
             10. Contact
           </h2>
           <p>
             Pour toute question, remarque ou demande liée à la protection de
             ta vie privée, tu peux écrire à :
           </p>
-          <p className="text-slate-300">
+          <p className="text-[rgba(0,0,0,0.6)]">
             <span className="font-medium">Email :</span>{" "}
             sophie@sulkastudio.fr
           </p>
