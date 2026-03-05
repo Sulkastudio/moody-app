@@ -5,5 +5,6 @@ export default [
   route("/login", "routes/login.tsx"),
   route("/upload", "routes/upload.tsx"),
   route("/api/upload-image", "routes/api.upload-image.ts"),
+   route("/api/items", "routes/api.items.ts"),
   route("/privacy", "routes/privacy.tsx"),
 ] satisfies RouteConfig;
