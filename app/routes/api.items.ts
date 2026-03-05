@@ -1,6 +1,8 @@
 import type { ActionFunctionArgs, LoaderFunctionArgs } from "react-router";
+import { desc, eq } from "drizzle-orm";
 import { auth } from "~/lib/auth";
-import { ensureDb, pool } from "~/lib/db";
+import { db, ensureDb } from "~/lib/db";
+import { items } from "~/lib/schema";
 
 type ItemType = "page" | "image" | "text" | "color";
 
@@ -22,18 +24,22 @@ export async function loader({ request }: LoaderFunctionArgs) {
   const userId = await requireUserId(request);
   await ensureDb();
 
-  const result = await pool.query(
-    `
-      SELECT id, type, data, metadata, blob_key, created_at, updated_at
-      FROM items
-      WHERE user_id = $1
-      ORDER BY created_at DESC
-      LIMIT 500
-    `,
-    [userId],
-  );
+  const rows = await db
+    .select({
+      id: items.id,
+      type: items.type,
+      data: items.data,
+      metadata: items.metadata,
+      blobKey: items.blobKey,
+      createdAt: items.createdAt,
+      updatedAt: items.updatedAt,
+    })
+    .from(items)
+    .where(eq(items.userId, userId))
+    .orderBy(desc(items.createdAt))
+    .limit(500);
 
-  return Response.json({ items: result.rows });
+  return Response.json({ items: rows });
 }
 
 export async function action({ request }: ActionFunctionArgs) {
@@ -72,21 +78,36 @@ export async function action({ request }: ActionFunctionArgs) {
       ? id
       : `item_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
 
-  const result = await pool.query(
-    `
-      INSERT INTO items (id, user_id, type, data, metadata, blob_key)
-      VALUES ($1, $2, $3, $4, $5, $6)
-      ON CONFLICT (id) DO UPDATE SET
-        type = EXCLUDED.type,
-        data = EXCLUDED.data,
-        metadata = EXCLUDED.metadata,
-        blob_key = EXCLUDED.blob_key,
-        updated_at = NOW()
-      RETURNING id, type, data, metadata, blob_key, created_at, updated_at
-    `,
-    [itemId, userId, type, data, metadata ?? null, blobKey ?? null],
-  );
+  const [item] = await db
+    .insert(items)
+    .values({
+      id: itemId,
+      userId,
+      type,
+      data,
+      metadata: (metadata ?? null) as unknown | null,
+      blobKey: blobKey ?? null,
+    })
+    .onConflictDoUpdate({
+      target: items.id,
+      set: {
+        type,
+        data,
+        metadata: (metadata ?? null) as unknown | null,
+        blobKey: blobKey ?? null,
+        updatedAt: new Date(),
+      },
+    })
+    .returning({
+      id: items.id,
+      type: items.type,
+      data: items.data,
+      metadata: items.metadata,
+      blobKey: items.blobKey,
+      createdAt: items.createdAt,
+      updatedAt: items.updatedAt,
+    });
 
-  return Response.json({ item: result.rows[0] }, { status: 201 });
+  return Response.json({ item }, { status: 201 });
 }
 
