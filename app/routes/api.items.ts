@@ -1,4 +1,4 @@
-import { json, type ActionFunctionArgs, type LoaderFunctionArgs } from "react-router";
+import type { ActionFunctionArgs, LoaderFunctionArgs } from "react-router";
 import { auth } from "~/lib/auth";
 import { ensureDb, pool } from "~/lib/db";
 
@@ -33,7 +33,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
     [userId],
   );
 
-  return json({ items: result.rows });
+  return Response.json({ items: result.rows });
 }
 
 export async function action({ request }: ActionFunctionArgs) {
@@ -87,6 +87,6 @@ export async function action({ request }: ActionFunctionArgs) {
     [itemId, userId, type, data, metadata ?? null, blobKey ?? null],
   );
 
-  return json({ item: result.rows[0] }, { status: 201 });
+  return Response.json({ item: result.rows[0] }, { status: 201 });
 }
 
